@@ -1,14 +1,34 @@
 {
-  "name": "artique-api-lib",
+  "name": "@aqulionnn/artique-api-lib",
   "version": "1.0.0",
-  "description": "",
+  "description": "A lightweight TypeScript library providing shared API services and types for the Artique microfrontend ecosystem.",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc"
   },
-  "dependencies": {},
+  "dependencies": {
+    "axios": "^1.12.2"
+  },
   "devDependencies": {
     "typescript": "^5.5.3"
   },
-  "private": true
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aQulionnn/artique-api-lib.git"
+  },
+  "keywords": [
+    "api",
+    "typescript",
+    "axios",
+    "artique",
+    "library",
+    "microfrontend"
+  ],
+  "author": "aQulionnn",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aQulionnn/artique-api-lib/issues"
+  },
+  "homepage": "https://github.com/aQulionnn/artique-api-lib#readme"
 }
