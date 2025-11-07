@@ -1,5 +1,5 @@
-import axios, { AxiosInstance } from "axios";
-import { getArtworks, getArtworkById } from "./artworkService"
+import axios from "axios";
+import { getArtworkById, getArtworks } from "./artworkService";
 
 export const createApi = (url: string) => {
     const api = axios.create({
@@ -12,7 +12,7 @@ export const createApi = (url: string) => {
     )
 
     return {
-        getArtworks: () => getArtworks(api),
-        getArtworkById: (id: string) => getArtworkById(api, id),
+        getArtworks: <TResponse>(fields: string[]) => getArtworks<TResponse>(api, fields),
+        getArtworkById: <TResponse>(id: string, fields: string[]) => getArtworkById<TResponse>(api, id, fields),
     }
 }
