@@ -1,3 +1,16 @@
+export type CreateArtworkRequest = {
+    title: string,
+    description: string,
+    imageUrl: string,
+    year: number,
+    artistId: string
+}
+
+export type UpdateArtworkDescriptionRequest = {
+    description: string
+}
+
+
 export type QueryResponse<TResponse> = {
     data: T
     errors?: { message: string }[]

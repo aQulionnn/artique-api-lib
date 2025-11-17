@@ -1,2 +1,2 @@
-export * from "./services/api"
+export * from "./services/readApi"
 export * from "./types/artwork"
