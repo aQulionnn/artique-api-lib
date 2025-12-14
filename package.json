@@ -1,6 +1,6 @@
 {
   "name": "@aqulionnn/artique-api-lib",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A lightweight TypeScript library providing shared API services and types for the Artique micro frontend ecosystem.",
   "main": "dist/index.js",
   "scripts": {

@@ -1,8 +1,19 @@
 import type { AxiosInstance } from "axios"
-import { CreateArtworkRequest, QueryResponse, UpdateArtworkDescriptionRequest } from "../types/artwork"
+import {
+    CreateArtworkRequest,
+    QueryResponse,
+    UpdateArtworkDescriptionRequest,
+    SearchArtworksInput,
+    UpdateArtworkRequest
+} from "../types/artwork"
 
 export const createArtwork = async (api: AxiosInstance, request: CreateArtworkRequest) => {
     const { data } = await api.post("artworks", request)
+    return data
+}
+
+export const updateArtwork = async(api: AxiosInstance, id: string, request: UpdateArtworkRequest) => {
+    const { data } = await api.put(`artworks/${id}`, request)
     return data
 }
 
@@ -43,5 +54,32 @@ export const getArtworkById = async <TResponse>(api: AxiosInstance, id: string, 
     }
 
     const { data } =  await api.post<QueryResponse<TResponse>>("", { query, variables })
+    return data
+}
+
+export const searchArtworks = async <TResponse>(
+    api: AxiosInstance,
+    title: string,
+    artistIds: string[],
+    years: number[],
+    fields: string[]
+) => {
+    const query = `
+        query SearchArtworks($input: SearchArtworksInput!) {
+            searchArtworks(input: $input) {
+                ${fields.join(' ')}
+            }
+        }
+    `
+
+    const variables = {
+        input: {
+            title: title,
+            artistIds: artistIds,
+            years: years
+        }
+    }
+
+    const { data } = await api.post<QueryResponse<TResponse>>("", {query, variables})
     return data
 }
